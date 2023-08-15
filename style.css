@@ -1,0 +1,158 @@
+*{
+  transition: all .5s;
+}
+.text{
+    background: linear-gradient(to right, slateblue, royalblue);
+    background: -webkit-linear-gradient(to right, slateblue, royalblue);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.background{
+  width: 100%;
+  height: 100vh;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tabs_label {
+  margin: 0px 5px;
+  padding: 10px 16px;
+  border: 1px solid white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: none;
+}
+.tabs_label:hover{
+  border: 1px solid slateblue;
+}
+.tabs_radio {
+  display: none;
+}
+
+.tabs_content {
+  order: 1;
+  width: 100%;
+  padding: 16px;
+  display: none;
+}
+
+.tabs_radio:checked + .tabs_label {
+  color: white;
+  background: slateblue;
+  border: 1px solid slateblue;
+}
+
+.tabs_radio:checked + .tabs_label + .tabs_content {
+  display: block;
+  animation: fade-in .8s forwards;
+}
+@keyframes fade-in{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.player_card{
+  width: 190px;
+  height: 190px;
+  position: relative;
+  overflow: hidden;
+}
+.fit{
+  position: absolute;
+  left: calc(-25%);
+  top: calc(-40%);
+  object-fit: cover;
+}
+
+.bg{
+  height: 300px;
+  background-image: url("./img/img102.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.backdrop{
+  height: 100%;
+  backdrop-filter: blur(100px);
+}
+.text-shadow{
+  text-shadow: 0 0 3px black;
+}
+.roadmap {
+  padding: 30px 50px;
+}
+.roadmap .point {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 60px;
+  position: relative;
+}
+.roadmap .point:first-child .point-index {
+  top: auto;
+  bottom: 0;
+  transform: translate(-50%, 2px) !important;
+}
+.roadmap .point:last-child .point-index {
+  top: 0;
+  transform: translate(-50%, -2px) !important;
+}
+.roadmap .point:not(:last-child) {
+  border-bottom: 2px solid slateblue;
+}
+.roadmap .point:nth-child(odd) {
+  align-items: flex-start;
+}
+.roadmap .point:nth-child(odd):not(:first-child) {
+  border-left: 2px solid slateblue;
+}
+.roadmap .point:last-child {
+  border: none !important;
+}
+.roadmap .point:nth-child(odd) .point-index {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+.roadmap .point:nth-child(even) {
+  align-items: flex-end;
+}
+.roadmap .point:nth-child(even):not(:last-child) {
+  border-right: 2px solid slateblue;
+}
+.roadmap .point:nth-child(even) .point-index {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+.roadmap .point .point-index {
+  position: absolute;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  color: slateblue;
+  border: 2px solid slateblue;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+.roadmap .point .point-text {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+}
+@media (min-width: 641px) {
+  .roadmap .point:nth-child(even) .point-text {
+    justify-content: end;
+    /* text-align: end; */
+  }
+}
